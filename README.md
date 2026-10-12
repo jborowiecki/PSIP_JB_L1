@@ -6,3 +6,4 @@
 - Jan - miński
 - Tymoteusz - toruński
 - Marcin - miński
+- Dominik - koniński
