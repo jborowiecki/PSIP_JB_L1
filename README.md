@@ -10,3 +10,4 @@
 - Kacper - legnicki
 - Bartek - radomszczański
 - Julia - hajnowski
+- Daniel - sochaczewski
