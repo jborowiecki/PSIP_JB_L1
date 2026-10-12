@@ -3,3 +3,4 @@
 - Dawid - bocheński
 - Stanisław - turecki
 - Jakub - chełmski
+- Jan - miński
