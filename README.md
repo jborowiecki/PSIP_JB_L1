@@ -2,3 +2,4 @@
 - JAN - warszawski
 Dawid - bocheński
 - Stanisław - turecki
+- Jakub - chełmski
