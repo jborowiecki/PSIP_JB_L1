@@ -8,6 +8,5 @@
 - Marcin - miński
 - Dominik - koniński
 - Kacper - legnicki
-- Tymoteusz - toruński
 - Bartek - radomszczański
 - Julia - hajnowski
