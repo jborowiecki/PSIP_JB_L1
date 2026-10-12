@@ -11,3 +11,4 @@
 - Bartek - radomszczański
 - Julia - hajnowski
 - Daniel - sochaczewski
+- Michał - biłgorajski
