@@ -1,5 +1,5 @@
 # PSIP_JB_L1
 - JAN - warszawski
-Dawid - bocheński
+- Dawid - bocheński
 - Stanisław - turecki
 - Jakub - chełmski
