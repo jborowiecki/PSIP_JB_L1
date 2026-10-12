@@ -1,4 +1,14 @@
 # PSIP_JB_L1
-- JAN - warszawski
-
-
+- Jan - warszawski
+- Dawid - bocheński
+- Stanisław - turecki
+- Jakub - chełmski
+- Jan - miński
+- Tymoteusz - toruński
+- Marcin - miński
+- Dominik - koniński
+- Kacper - legnicki
+- Bartek - radomszczański
+- Julia - hajnowski
+- Daniel - sochaczewski
+- Michał - biłgorajski
