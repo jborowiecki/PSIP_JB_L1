@@ -5,3 +5,4 @@
 - Jakub - chełmski
 - Jan - miński
 - Tymoteusz - toruński
+- Marcin - miński
