@@ -8,3 +8,4 @@
 - Marcin - miński
 - Dominik - koniński
 - Kacper - legnicki
+- Tymoteusz - toruński
