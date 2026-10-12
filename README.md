@@ -4,3 +4,4 @@
 - Stanisław - turecki
 - Jakub - chełmski
 - Jan - miński
+- Tymoteusz - toruński
