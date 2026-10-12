@@ -10,3 +10,4 @@
 - Kacper - legnicki
 - Tymoteusz - toruński
 - Bartek - radomszczański
+- Julia - hajnowski
