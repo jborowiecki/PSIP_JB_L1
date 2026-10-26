@@ -1,0 +1,12 @@
+.idea/
+.runner
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+*.pgpass
+qgis/*.qgz
+qgis/*.qgz~
+qgis/*.qgd

@@ -1,0 +1,11 @@
+.git
+.idea
+.runner
+__pycache__
+**/__pycache__
+.venv
+venv
+.env
+.env.*
+*.pgpass
+qgis
