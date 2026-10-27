@@ -30,11 +30,16 @@ services:
       PGPASSWORD: ${POSTGRES_PASSWORD}
       PGDATABASE: ${POSTGRES_DB}
       H3_RESOLUTIONS: ${H3_RESOLUTIONS:-7,8,9}
+      ENVIRONMENT: ${ENVIRONMENT}
+      BDOT_CACHE: /bdot
+    volumes:
+      - bdot_cache:/bdot
     depends_on:
       postgis:
         condition: service_healthy
     command: ["python", "/app/load.py"]
 
 volumes:
+  bdot_cache:
   pgdata:
     name: remote-db-${ENVIRONMENT}-pgdata

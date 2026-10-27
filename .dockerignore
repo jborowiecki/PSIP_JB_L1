@@ -9,3 +9,4 @@ venv
 .env.*
 *.pgpass
 qgis
+data/bdot

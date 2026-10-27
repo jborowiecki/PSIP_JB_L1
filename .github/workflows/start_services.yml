@@ -48,6 +48,22 @@ jobs:
             -p remote-db-${{ github.ref_name }} \
             run --rm python
 
+      - name: Load BDOT10K and aggregate in EPSG 2180
+        if: github.ref_name == 'env-test'
+        run: |
+          docker compose \
+            -f docker-compose-remote.yml \
+            -p remote-db-${{ github.ref_name }} \
+            run --rm python python /tests/test_bdot_metrics.py
+          docker compose \
+            -f docker-compose-remote.yml \
+            -p remote-db-${{ github.ref_name }} \
+            run --rm python python /app/bdot.py
+          docker compose \
+            -f docker-compose-remote.yml \
+            -p remote-db-${{ github.ref_name }} \
+            run --rm python python /app/verify_bdot.py
+
       - name: Show running containers
         run: |
           docker ps

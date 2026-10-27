@@ -10,3 +10,6 @@ venv/
 qgis/*.qgz
 qgis/*.qgz~
 qgis/*.qgd
+data/bdot/
+qgis/*.gpkg
+qgis/*.gpkg-*
