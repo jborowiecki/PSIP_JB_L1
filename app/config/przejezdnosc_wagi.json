@@ -1,0 +1,352 @@
+{
+  "model_version": "1.0",
+  "vehicle": "wojskowy pojazd kołowy",
+  "denominator": "all_present_layers_including_zero_weights",
+  "normalization": "county_maximum_per_resolution",
+  "sensitivity_fraction": 0.2,
+  "assumptions": [
+    "Wagi są autorskim założeniem laboratoryjnym, bez kalibracji terenowej.",
+    "Brak modelu konkretnego pojazdu, nachylenia, nośności i wilgotności gruntu.",
+    "Długość dróg nie potwierdza spójności, dostępności i nośności sieci.",
+    "Powierzchnia budynków i zadrzewień nie opisuje rozstawu przeszkód.",
+    "Normalizacja sum przyciętych do powiatu może zaniżać wartości małych heksów brzegowych.",
+    "Kryteria częściowo się nakładają; wagi zerowe ograniczają, ale nie usuwają całej zależności."
+  ],
+  "sources": [
+    "https://rdl.train.army.mil/catalog-ws/view/100.ATSC/8D6DF8FA-FCD5-4A6F-BEE4-B15D10BE1BF5-1373892396033/atp4_11.pdf",
+    "https://www.erdc.usace.army.mil/Media/Publication-Notices/Tag/5209/mobility/",
+    "https://wodgik.lubuskie.pl/uploads/VADEMECUM_UZYTKOWNIKA_BDOT10k_2024.pdf"
+  ],
+  "criteria": {
+    "ot_adja_a": {
+      "name": "Jednostki podziału administracyjnego",
+      "weight": 0,
+      "reason": "Granice administracyjne nie są przeszkodami fizycznymi."
+    },
+    "ot_adms_a": {
+      "name": "Miejscowości",
+      "weight": 0,
+      "reason": "Zasięg lub punkt miejscowości nie opisuje przeszkód."
+    },
+    "ot_adms_p": {
+      "name": "Miejscowości",
+      "weight": 0,
+      "reason": "Zasięg lub punkt miejscowości nie opisuje przeszkód."
+    },
+    "ot_biub_l": {
+      "name": "Inne budowle",
+      "weight": -0.2,
+      "reason": "Lokalne przeszkody o zróżnicowanych właściwościach; alias BIUB w danych źródłowych BUIB."
+    },
+    "ot_bubd_a": {
+      "name": "Budynki",
+      "weight": -0.6,
+      "reason": "Powierzchnia nie opisuje odstępów i układu zabudowy; obniżona waga."
+    },
+    "ot_buhd_a": {
+      "name": "Budowle hydrotechniczne",
+      "weight": -0.5,
+      "reason": "Lokalne przeszkody konstrukcyjne."
+    },
+    "ot_buhd_l": {
+      "name": "Budowle hydrotechniczne",
+      "weight": -0.5,
+      "reason": "Lokalne przeszkody konstrukcyjne."
+    },
+    "ot_buib_a": {
+      "name": "Inne budowle",
+      "weight": -0.2,
+      "reason": "Lokalne przeszkody o zróżnicowanych właściwościach."
+    },
+    "ot_buin_l": {
+      "name": "Budowle inżynierskie",
+      "weight": 0,
+      "reason": "Mosty, kładki i tunele wymagają rozdzielenia; brak parametrów nośności."
+    },
+    "ot_buit_a": {
+      "name": "Inne urządzenia techniczne",
+      "weight": -0.2,
+      "reason": "Lokalne ograniczenia przestrzeni; brak danych o możliwości ominięcia."
+    },
+    "ot_buit_p": {
+      "name": "Inne urządzenia techniczne",
+      "weight": -0.2,
+      "reason": "Lokalne ograniczenia przestrzeni; brak danych o możliwości ominięcia."
+    },
+    "ot_busp_a": {
+      "name": "Budowle sportowe",
+      "weight": 0,
+      "reason": "Klasa mieszana: np. basen i otwarty plac mają różny wpływ."
+    },
+    "ot_busp_l": {
+      "name": "Budowle sportowe",
+      "weight": 0,
+      "reason": "Klasa mieszana: np. basen i otwarty plac mają różny wpływ."
+    },
+    "ot_butr_l": {
+      "name": "Urządzenia transportowe",
+      "weight": 0,
+      "reason": "Urządzenie nie stanowi potwierdzonej trasy dla pojazdu kołowego."
+    },
+    "ot_buuo_l": {
+      "name": "Umocnienia drogowe, kolejowe i wodne",
+      "weight": -0.6,
+      "reason": "Możliwe bariery poprzeczne i ograniczenie dostępu."
+    },
+    "ot_buwt_p": {
+      "name": "Wysokie budowle techniczne",
+      "weight": -0.1,
+      "reason": "Liczba punktów słabo opisuje powierzchnię i możliwość ominięcia."
+    },
+    "ot_buzm_l": {
+      "name": "Budowle ziemne",
+      "weight": -0.7,
+      "reason": "Wały, nasypy i wykopy utrudniają przekraczanie terenu."
+    },
+    "ot_buzt_a": {
+      "name": "Zbiorniki techniczne",
+      "weight": -0.5,
+      "reason": "Przestrzeń zajęta przez stałe przeszkody."
+    },
+    "ot_buzt_p": {
+      "name": "Zbiorniki techniczne",
+      "weight": -0.5,
+      "reason": "Przestrzeń zajęta przez stałe przeszkody."
+    },
+    "ot_kuho_a": {
+      "name": "Kompleksy usług hotelarskich",
+      "weight": 0,
+      "reason": "Funkcja kompleksu nie określa fizycznej przejezdności; powtórzenie obiektów."
+    },
+    "ot_kuhu_a": {
+      "name": "Bazary i targowiska",
+      "weight": 0,
+      "reason": "Wpływ zależy od aktualnego zagospodarowania."
+    },
+    "ot_kuko_a": {
+      "name": "Kompleksy komunikacyjne",
+      "weight": 0,
+      "reason": "Powtórzenie informacji o drogach i pozostałej infrastrukturze."
+    },
+    "ot_kuko_p": {
+      "name": "Kompleksy komunikacyjne",
+      "weight": 0,
+      "reason": "Powtórzenie informacji o drogach i pozostałej infrastrukturze."
+    },
+    "ot_kuos_a": {
+      "name": "Kompleksy oświatowe",
+      "weight": 0,
+      "reason": "Przeszkody opisują dokładniej budynki i inne obiekty."
+    },
+    "ot_kuoz_a": {
+      "name": "Kompleksy ochrony zdrowia i opieki społecznej",
+      "weight": 0,
+      "reason": "Przeszkody opisują dokładniej budynki i inne obiekty."
+    },
+    "ot_kupg_a": {
+      "name": "Kompleksy przemysłowo-gospodarcze",
+      "weight": 0,
+      "reason": "Granica kompleksu nie opisuje przeszkód; powtórzenie obiektów."
+    },
+    "ot_kupg_p": {
+      "name": "Kompleksy przemysłowo-gospodarcze",
+      "weight": 0,
+      "reason": "Granica kompleksu nie opisuje przeszkód; powtórzenie obiektów."
+    },
+    "ot_kusc_a": {
+      "name": "Kompleksy sakralne i cmentarze",
+      "weight": 0,
+      "reason": "Zróżnicowana klasa wymaga rozdzielenia rodzajów."
+    },
+    "ot_kusk_a": {
+      "name": "Kompleksy sportowe i rekreacyjne",
+      "weight": 0,
+      "reason": "Zróżnicowane zagospodarowanie wewnątrz granicy."
+    },
+    "ot_kuza_a": {
+      "name": "Kompleksy zabytkowo-historyczne",
+      "weight": 0,
+      "reason": "Funkcja kompleksu nie opisuje fizycznej przejezdności."
+    },
+    "ot_oikm_a": {
+      "name": "Obiekty związane z komunikacją",
+      "weight": 0,
+      "reason": "Wspólna klasa obejmuje obiekty o różnych funkcjach."
+    },
+    "ot_oikm_l": {
+      "name": "Obiekty związane z komunikacją",
+      "weight": 0,
+      "reason": "Wspólna klasa obejmuje obiekty o różnych funkcjach."
+    },
+    "ot_oikm_p": {
+      "name": "Obiekty związane z komunikacją",
+      "weight": 0,
+      "reason": "Wspólna klasa obejmuje obiekty o różnych funkcjach."
+    },
+    "ot_oimk_a": {
+      "name": "Mokradła",
+      "weight": -1,
+      "reason": "Wysokie ryzyko utraty nośności gruntu i ugrzęźnięcia."
+    },
+    "ot_oior_a": {
+      "name": "Obiekty o znaczeniu orientacyjnym",
+      "weight": 0,
+      "reason": "Różne funkcje i przeszkody; potrzebny podział rodzajów."
+    },
+    "ot_oior_l": {
+      "name": "Obiekty o znaczeniu orientacyjnym",
+      "weight": 0,
+      "reason": "Różne funkcje i przeszkody; potrzebny podział rodzajów."
+    },
+    "ot_oior_p": {
+      "name": "Obiekty o znaczeniu orientacyjnym",
+      "weight": 0,
+      "reason": "Różne funkcje i przeszkody; potrzebny podział rodzajów."
+    },
+    "ot_oipr_l": {
+      "name": "Obiekty przyrodnicze",
+      "weight": 0,
+      "reason": "Wymagają rozdzielenia rodzajów przed oceną wpływu."
+    },
+    "ot_oipr_p": {
+      "name": "Obiekty przyrodnicze",
+      "weight": 0,
+      "reason": "Wymagają rozdzielenia rodzajów przed oceną wpływu."
+    },
+    "ot_oisz_a": {
+      "name": "Szuwary",
+      "weight": -0.8,
+      "reason": "Wskaźnik podmokłego terenu i roślinność utrudniająca ruch."
+    },
+    "ot_ptgn_a": {
+      "name": "Grunty nieużytkowane",
+      "weight": 0,
+      "reason": "Podłoża o różnej przejezdności wymagają podziału rodzajów."
+    },
+    "ot_ptkm_a": {
+      "name": "Tereny komunikacyjne",
+      "weight": 0,
+      "reason": "Nakładanie informacji z drogami i inną infrastrukturą."
+    },
+    "ot_ptlz_a": {
+      "name": "Tereny leśne lub zadrzewione",
+      "weight": -0.8,
+      "reason": "Ograniczają ruch; cała klasa obejmuje lasy, zagajniki i zadrzewienia."
+    },
+    "ot_ptnz_a": {
+      "name": "Inne tereny niezabudowane",
+      "weight": 0,
+      "reason": "Ogólna informacja niewystarczająca do określenia wpływu."
+    },
+    "ot_ptpl_a": {
+      "name": "Place",
+      "weight": 0.4,
+      "reason": "Potencjalna przestrzeń do przejazdu; nieznana nośność i dostępność."
+    },
+    "ot_ptrk_a": {
+      "name": "Roślinność krzewiasta",
+      "weight": -0.5,
+      "reason": "Utrudnienie zwykle mniejsze niż przy zwartym lesie."
+    },
+    "ot_ptso_a": {
+      "name": "Składowiska odpadów",
+      "weight": -0.7,
+      "reason": "Nierówne podłoże i przeszkody o nieznanych właściwościach."
+    },
+    "ot_pttr_a": {
+      "name": "Roślinność trawiasta i uprawy rolne",
+      "weight": 0.2,
+      "reason": "Mało trwałych przeszkód, ale brak informacji o nośności."
+    },
+    "ot_ptut_a": {
+      "name": "Uprawy trwałe",
+      "weight": -0.4,
+      "reason": "Drzewa, krzewy i urządzenia uprawowe ograniczają ruch."
+    },
+    "ot_ptwp_a": {
+      "name": "Wody powierzchniowe",
+      "weight": -1,
+      "reason": "Silna przeszkoda dla pojazdu bez założonej zdolności pływania."
+    },
+    "ot_ptwz_a": {
+      "name": "Wyrobiska i zwałowiska",
+      "weight": -0.8,
+      "reason": "Skarpy, nierówności i potencjalnie niestabilne podłoże."
+    },
+    "ot_ptzb_a": {
+      "name": "Zabudowa",
+      "weight": 0,
+      "reason": "Częściowe powtórzenie informacji o budynkach."
+    },
+    "ot_skdr_l": {
+      "name": "Drogi",
+      "weight": 1,
+      "reason": "Podstawowa infrastruktura ruchu kołowego; długość nie potwierdza dostępności."
+    },
+    "ot_skjz_l": {
+      "name": "Jezdnie",
+      "weight": 0,
+      "reason": "Znaczne powtórzenie informacji zawartej w drogach."
+    },
+    "ot_skpp_l": {
+      "name": "Przeprawy",
+      "weight": 0,
+      "reason": "Niepotwierdzone rodzaj, dostępność i nośność."
+    },
+    "ot_skrp_l": {
+      "name": "Ciągi ruchu pieszego lub rowerowego",
+      "weight": 0,
+      "reason": "Długość nie potwierdza szerokości i nośności dla pojazdu."
+    },
+    "ot_skrw_p": {
+      "name": "Ronda i węzły drogowe",
+      "weight": 0,
+      "reason": "Liczba nie określa przejezdności; uwzględnione w sieci drogowej."
+    },
+    "ot_sktr_l": {
+      "name": "Tory lub zespoły torów",
+      "weight": -0.4,
+      "reason": "Utrudnienie ruchu poprzecznego bez założenia pełnej nieprzekraczalności."
+    },
+    "ot_suln_l": {
+      "name": "Linie elektroenergetyczne",
+      "weight": 0,
+      "reason": "Długość linii nie opisuje przeszkód na poziomie gruntu."
+    },
+    "ot_supr_l": {
+      "name": "Przewody rurowe",
+      "weight": 0,
+      "reason": "Wpływ zależy od położenia względem powierzchni."
+    },
+    "ot_swkn_l": {
+      "name": "Kanały",
+      "weight": 0,
+      "reason": "Reprezentacja liniowa może powtarzać wodę powierzchniową; brak wymiarów przekroju."
+    },
+    "ot_swrm_l": {
+      "name": "Rowy melioracyjne",
+      "weight": -0.6,
+      "reason": "Bariery liniowe o nieznanej szerokości i głębokości."
+    },
+    "ot_swrs_l": {
+      "name": "Rzeki i strumienie",
+      "weight": 0,
+      "reason": "Reprezentacja liniowa może powtarzać wodę powierzchniową; brak wymiarów przekroju."
+    },
+    "ot_tcon_a": {
+      "name": "Obszary Natura 2000",
+      "weight": 0,
+      "reason": "Status ochronny nie określa fizycznej przejezdności."
+    },
+    "ot_tcpn_a": {
+      "name": "Parki narodowe",
+      "weight": 0,
+      "reason": "Status ochronny nie określa fizycznej przejezdności."
+    },
+    "ot_tcrz_a": {
+      "name": "Rezerwaty",
+      "weight": 0,
+      "reason": "Status ochronny nie określa fizycznej przejezdności."
+    }
+  }
+}

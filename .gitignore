@@ -13,3 +13,4 @@ qgis/*.qgd
 data/bdot/
 qgis/*.gpkg
 qgis/*.gpkg-*
+qgis/przejezdnosc/
