@@ -23,3 +23,4 @@ ENV PATH="/opt/venv/bin:$PATH"
 WORKDIR /app
 COPY app/ /app/
 COPY data/ /data/
+COPY tests/ /tests/
